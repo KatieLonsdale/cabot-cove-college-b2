@@ -1,0 +1,4 @@
+<section id="course">
+<% @courses.each do |course| %>
+<p><%= "#{course.name}: #{course.number_enrolled}" %></p>
+<% end %>
