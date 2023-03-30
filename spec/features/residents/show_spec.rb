@@ -9,7 +9,7 @@ RSpec.describe 'residents show page' do
     @course_3 = @resident_2.courses.create!(name: "Math")
     @course_4 = @resident_2.courses.create!(name: "Science")
   end
-  describe "As a visitor, when I visit '/courses'" do
+  describe "As a visitor, when I visit '/residents/:resident_id'" do
     it "displays the resident's name and their courses" do
       visit "/residents/#{@resident_1.id}"
       within("#resident") do
