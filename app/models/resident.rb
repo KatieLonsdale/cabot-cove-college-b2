@@ -5,4 +5,9 @@ class Resident < ApplicationRecord
 
   has_many :resident_courses
   has_many :courses, through: :resident_courses
+
+  def list_courses
+    courses = ResidentCourse.where(resident_id: id)
+    Course.where(id: courses)
+  end
 end
