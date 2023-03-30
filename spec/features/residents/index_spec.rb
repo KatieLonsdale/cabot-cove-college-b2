@@ -18,5 +18,11 @@ RSpec.describe "residents index page" do
         expect(page).to have_content(@resident_2.occupation)
       end
     end
+
+    it "shows me the average age of all the residents" do
+      within("#average_age") do
+        expect(page).to have_content("Average Age: #{Resident.average_age}")
+      end
+    end
   end
 end
