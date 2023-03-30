@@ -1,0 +1,7 @@
+<section id="resident">
+<h3><%= @resident.name %></h3>
+<section id="courses">
+<ul><h6> Courses </h6>
+  <% @courses.each do |course| %>
+    <li><%= course.name %></li>
+  <% end %>
