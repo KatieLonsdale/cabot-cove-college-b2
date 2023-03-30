@@ -1,0 +1,4 @@
+<section id="resident">
+<% @residents.each do |resident| %>
+  <p><%= "Name: #{resident.name}, Age: #{resident.age}, Occupation: #{resident.occupation}" %></p>
+<% end %>
