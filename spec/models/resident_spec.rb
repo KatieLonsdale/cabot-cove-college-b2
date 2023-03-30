@@ -13,4 +13,21 @@ RSpec.describe Resident, type: :model do
     it {should have_many(:courses).through(:resident_courses)}
   end
 
+  describe '#instance methods' do
+    before :each do
+      @resident_1 = Resident.create!(name: "Jessica Fletcher", age: 65, occupation: "Mystery writer")
+      @resident_2 = Resident.create!(name: "Dr. Seth Hazlitt", age: 70, occupation: "Town Doctor")
+      @course_1 = @resident_1.courses.create!(name: "Crime Scenes 101")
+      @course_2 = @resident_1.courses.create!(name: "Fingerprinting")
+      @course_3 = @resident_2.courses.create!(name: "Math")
+      @course_4 = @resident_2.courses.create!(name: "Science")
+    end
+    describe '#list_courses' do
+      it 'returns a list of courses the resident is enrolled in' do
+        expect(@resident_1.list_courses).to eq([@course_1, @course_2])
+        expect(@resident_2.list_courses).to eq([@course_3, @course_4])
+      end
+    end
+  end
+
 end
