@@ -13,6 +13,19 @@ RSpec.describe Resident, type: :model do
     it {should have_many(:courses).through(:resident_courses)}
   end
 
+  describe '::class methods' do
+    before :each do
+      @resident_1 = Resident.create!(name: "Jessica Fletcher", age: 65, occupation: "Mystery writer")
+      @resident_2 = Resident.create!(name: "Dr. Seth Hazlitt", age: 70, occupation: "Town Doctor")
+      @resident_3 = Resident.create!(name: "Steve", age: 50, occupation: "Librarian")
+    end
+    describe '::average_age' do
+      it 'returns the average age of all residents' do
+        expect(Resident.average_age).to eq(61.7)
+      end
+    end
+  end
+
   describe '#instance methods' do
     before :each do
       @resident_1 = Resident.create!(name: "Jessica Fletcher", age: 65, occupation: "Mystery writer")
@@ -29,5 +42,6 @@ RSpec.describe Resident, type: :model do
       end
     end
   end
+
 
 end
